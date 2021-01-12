@@ -11,6 +11,9 @@ use WagnerMontanini\LayoutSyspdv\Helpers;
 abstract class LayoutSyspdv extends Helpers
 {
     /** @var array */
+    private $syspadm;
+    
+    /** @var array */
     private $syspplp;
 
     /** @var array */
@@ -33,6 +36,9 @@ abstract class LayoutSyspdv extends Helpers
 
     /** @var array */
     private $syspcmp;
+
+    /** @var array */
+    private $syspcrc;
 
     /** @var array */
     private $syspest;
@@ -59,6 +65,9 @@ abstract class LayoutSyspdv extends Helpers
     private $syspimppro;
 
     /** @var array */
+    private $sysppplc;
+
+    /** @var array */
     private $syspprp;
 
     /** @var array */
@@ -71,6 +80,9 @@ abstract class LayoutSyspdv extends Helpers
     private $syspppl;
 
     /** @var array */
+    private $sysppdcn;
+
+    /** @var array */
     private $syspram;
 
     /** @var array */
@@ -80,10 +92,16 @@ abstract class LayoutSyspdv extends Helpers
     private $syspsec;
 
     /** @var array */
+    private $syspser;
+
+    /** @var array */
     private $syspsbg;
 
     /** @var array */
     private $sysptxa;
+
+    /** @var array */
+    private $syspvdc;
 
     /** @var object */
     protected $response;
@@ -457,7 +475,7 @@ abstract class LayoutSyspdv extends Helpers
     {
         foreach ($fields as $data){
             if($data["001"] == "C" && in_array($data["005"], $this->baixaEstoque) 
-            && in_array($data["007"], $this->simNao) && in_array($data["008"], $this->simNao)){
+            && in_array($data["007"], $this->tipoComposicao) && in_array($data["008"], $this->simNao)){
                 $this->syspcmp[] = gzcompress($this->mb_str_pad($this->str_limit_chars($data["001"],1) , 1 , "0" , STR_PAD_LEFT).
                     $this->mb_str_pad($this->str_limit_chars($data["002"],1 ) , 1 , " " , STR_PAD_RIGHT).
                     $this->mb_str_pad($this->str_limit_chars($data["003"], 14) , 14 , "0" , STR_PAD_LEFT).
@@ -831,7 +849,7 @@ abstract class LayoutSyspdv extends Helpers
     {
         foreach ($fields as $data){
             if(in_array($data["005"], $this->simNao) 
-                && in_array($data["007"], $this->simNao) && in_array($data["016"], $this->simNao) 
+                && in_array($data["007"], $this->pesoVariavel) && in_array($data["016"], $this->simNao) 
                 && in_array($data["017"], $this->simNao) && in_array($data["026"], $this->tipoBonificacao) 
                 && in_array($data["031"], $this->produtoAlterado) 
                 && in_array($data["033"], $this->simNao) && in_array($data["034"], $this->simNao) 
