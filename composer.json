@@ -1,0 +1,30 @@
+{
+  "name": "wagnermontanini/layoutsyspdv",
+  "description": "Biblioteca para geração de arquivos de importação e exportação de dados do sistema SYSPDV",
+  "keywords": [
+    "SYSPDV",
+    "Importação",
+    "Exportação",
+    "SYSPDV Importação",
+    "SYSPDV Exportação",
+    "WagnerMontanini"
+  ],
+  "homepage": "https://www.devlution.com.br",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Wagner Montanini",
+      "email": "wagnermontanini@hotmail.com.br",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.1",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "WagnerMontanini\\LayoutSyspdv\\": "src"
+    }
+  }
+}
